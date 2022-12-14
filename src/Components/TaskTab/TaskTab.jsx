@@ -1,6 +1,6 @@
 import "./TaskTab.scss";
 
-const TaskTab = ({ name, id, taskArr }) => {
+const TaskTab = ({ taskArr }) => {
   const taskTabsJSX = taskArr.map(({ name, id }) => (
     <div className="task-tab" key={id}>
       <input type="checkbox" name={name} id={id} />

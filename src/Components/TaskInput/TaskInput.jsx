@@ -9,11 +9,23 @@ const TaskInput = () => {
     setTask(taskInput);
   };
 
+  const handleSubmit = (event, props) => {
+    const { addTask } = props;
+    event.preventDefault();
+    addTask(task);
+    setTask("");
+    if (task === "") {
+      alert("please enter a task");
+    }
+  };
+
   return (
-    <form className="task-input">
+    <form className="task-input" onSubmit={handleSubmit}>
       <input
         type="text"
+        name="text"
         placeholder="Add task here..."
+        value={task}
         onInput={handleInput}
         task={task}
       />
