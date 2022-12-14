@@ -1,16 +1,18 @@
 import "./App.scss";
+import TaskTab from "./Components/TaskTab/TaskTab";
+import TaskInput from "./Components/TaskInput/TaskInput";
 
 const App = () => {
   return (
-    <body>
+    <div>
       <h1>My Todos</h1>
       <button>reset</button>
-      <input type="text" />
-      <button>append task</button>
-      <input type="checkbox" name="" id="" />
-      <p>task here</p>
-      <button>delete</button>
-    </body>
+      <TaskInput />
+      <TaskTab name="eat" />
+      <TaskTab name="sleep" />
+      <TaskTab name="study" />
+      <TaskTab name="go for walk" />
+    </div>
   );
 };
 
