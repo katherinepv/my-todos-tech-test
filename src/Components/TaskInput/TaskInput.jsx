@@ -1,35 +1,20 @@
 import "./TaskInput.scss";
 import { useState } from "react";
 
-const TaskInput = () => {
-  const [task, setTask] = useState("");
-
-  const handleInput = (event) => {
-    const taskInput = event.target.value;
-    setTask(taskInput);
-  };
-
-  const handleSubmit = (event, props) => {
-    const { addTask } = props;
-    event.preventDefault();
-    addTask(task);
-    setTask("");
-    if (task === "") {
-      alert("please enter a task");
-    }
-  };
-
+const TaskInput = ({ handleTaskInput, newTask, addNewTaskToArr }) => {
   return (
-    <form className="task-input" onSubmit={handleSubmit}>
+    <form className="task-input" onSubmit={addNewTaskToArr}>
       <input
         type="text"
         name="text"
         placeholder="Add task here..."
-        value={task}
-        onInput={handleInput}
-        task={task}
+        value={newTask}
+        onInput={handleTaskInput}
+        task={newTask}
       />
-      <button type="submit">append task</button>
+      <button type="submit" onClick={addNewTaskToArr}>
+        append task
+      </button>
     </form>
   );
 };
